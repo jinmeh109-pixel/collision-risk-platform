@@ -26,7 +26,7 @@ The prototype is limited to NCDB-supported concepts: collision severity, injury 
 
 ## Local development
 
-The prototype targets Node 18+ and Vite 5.
+The prototype targets Node 18+ and Vite 5.4.11.
 
 ```bash
 npm install
