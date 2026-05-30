@@ -1,0 +1,101 @@
+// Fake NCDB-style prototype records only.
+// This module is intentionally isolated so cleaned real NCDB extracts can replace
+// these arrays without changing the React screens or reasoning workflow.
+export const ncdbSupportedVariables = [
+  'P_AGE',
+  'V_YEAR',
+  'V_TYPE',
+  'C_WTHR',
+  'C_RSUR',
+  'C_MNTH',
+  'C_SEV',
+  'P_ISEV',
+  'C_WDAY',
+  'C_HOUR',
+  'C_CONF',
+]
+
+export const baseProfiles = [
+  {
+    id: 'NCDB-MOCK-0187',
+    name: 'Mock Profile Alpha',
+    P_AGE: 22,
+    V_YEAR: 2009,
+    V_TYPE: 'Passenger car',
+    C_WTHR: 'Clear',
+    C_RSUR: 'Dry',
+    C_MNTH: 'November',
+    C_SEV: 'Injury',
+    P_ISEV: 'Minor injury',
+    C_WDAY: 'Friday',
+    C_HOUR: 23,
+    C_CONF: 'Rear-end',
+    sasScore: 67,
+  },
+  {
+    id: 'NCDB-MOCK-0412',
+    name: 'Mock Profile Bravo',
+    P_AGE: 45,
+    V_YEAR: 2021,
+    V_TYPE: 'Light truck',
+    C_WTHR: 'Rain',
+    C_RSUR: 'Wet',
+    C_MNTH: 'March',
+    C_SEV: 'Property damage only',
+    P_ISEV: 'No injury',
+    C_WDAY: 'Tuesday',
+    C_HOUR: 8,
+    C_CONF: 'Turning movement',
+    sasScore: 39,
+  },
+  {
+    id: 'NCDB-MOCK-0774',
+    name: 'Mock Profile Charlie',
+    P_AGE: 71,
+    V_YEAR: 2005,
+    V_TYPE: 'Motorcycle',
+    C_WTHR: 'Snow',
+    C_RSUR: 'Ice',
+    C_MNTH: 'January',
+    C_SEV: 'Fatality',
+    P_ISEV: 'Serious injury',
+    C_WDAY: 'Saturday',
+    C_HOUR: 1,
+    C_CONF: 'Single vehicle',
+    sasScore: 89,
+  },
+]
+
+export const ncdbFieldOptions = {
+  V_TYPE: ['Passenger car', 'Light truck', 'Motorcycle', 'SUV', 'Heavy truck'],
+  C_WTHR: ['Clear', 'Rain', 'Snow', 'Fog', 'Freezing rain'],
+  C_RSUR: ['Dry', 'Wet', 'Ice', 'Snow covered', 'Slush'],
+  C_MNTH: ['January', 'March', 'June', 'September', 'November', 'December'],
+  C_SEV: ['Property damage only', 'Injury', 'Fatality'],
+  P_ISEV: ['No injury', 'Minor injury', 'Serious injury'],
+  C_WDAY: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  C_CONF: ['Rear-end', 'Turning movement', 'Head-on', 'Single vehicle', 'Sideswipe'],
+}
+
+export const initialAuditRows = [
+  {
+    timestamp: '2026-05-30 09:14 UTC',
+    profileId: 'NCDB-MOCK-0187',
+    recommendation: 'Elevated',
+    confidence: '78%',
+    scenario: 'Newer vehicle tested',
+    decision: 'Human marked for conditional underwriting review',
+    reason: 'Vehicle update and cleaner comparable cohort view reduced relative-risk concern.',
+    summary: 'Late-hour exposure and older vehicle drove relative risk; age was secondary.',
+  },
+  {
+    timestamp: '2026-05-30 10:02 UTC',
+    profileId: 'NCDB-MOCK-0774',
+    recommendation: 'High',
+    confidence: '86%',
+    scenario: 'No scenario tested',
+    decision: 'Human referred to senior underwriter',
+    reason: 'No downgrade override.',
+    summary: 'Collision severity, injury severity, winter road surface, and vehicle class sustained high relative risk.',
+  },
+]
